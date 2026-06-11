@@ -36,7 +36,7 @@ terraform {
 variable "costpulse_account_id" {
   description = "CostPulse auditor AWS account ID (we provide this — do not change)."
   type        = string
-  default     = "000000000000" # TODO(Jay): replace with the real CostPulse audit account ID
+  default     = "922981237283"
 
   validation {
     condition     = can(regex("^\\d{12}$", var.costpulse_account_id))
