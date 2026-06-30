@@ -12,7 +12,7 @@ waste figure for the most common AWS money leaks:
   5. Stopped EC2 instances w/ attached storage (the "we'll need it later" tax)
   6. Underutilized EC2 (avg CPU < 10%, 14d)    (rightsizing candidates)
   7. Idle RDS instances (~0 connections, 14d)  (databases nobody talks to)
-  8. Savings Plan / RI coverage gap            (paying on-demand for steady load)
+  8. Savings Plan coverage gap                 (paying on-demand for steady load)
 
 Usage (AWS CloudShell is the easiest — boto3 is preinstalled):
 
@@ -368,7 +368,7 @@ def main():
     if not findings:
         print("No obvious waste found by the quick checks. Either your account is")
         print("genuinely tight (respect), or the leaks are in the places a script")
-        print("can't see. The human audit checks 40+ patterns: costpulse.io/audit\n")
+        print("can't see. The human audit checks dozens more: costpulse.io/audit\n")
         return
 
     w = max(len(f.check) for f in findings)
@@ -380,8 +380,8 @@ def main():
         print(f"{''.ljust(w)}  └─ {f.detail}")
     print("-" * (w + 14 + 24 + 14))
     print(f"{'ESTIMATED ANNUALIZED WASTE'.ljust(w + 42)}  ${total:>9,.0f}\n")
-    print("These are quick estimates from 8 checks. A full audit covers 40+ patterns,")
-    print("exact pricing, and remediation Terraform — guaranteed 3x the fee or free:")
+    print("These are quick estimates from 8 checks. A full audit covers dozens more,")
+    print("with exact pricing and remediation Terraform — guaranteed 3x the fee or free:")
     print("→ https://costpulse.io/audit\n")
 
 

@@ -3,7 +3,7 @@
 **Find your AWS waste in 60 seconds. Read-only. One file. No agents, no signup.**
 
 ```
-ESTIMATED ANNUALIZED WASTE                                    $ 23,410
+ESTIMATED ANNUALIZED WASTE                                    $ X,XXX
 ```
 
 `aws-cost-check` is a single Python script that scans your AWS account with
@@ -80,7 +80,7 @@ A few rules we follow — and you should verify:
 ## Want the full version?
 
 This script checks 8 patterns. A [CostPulse Cost Audit](https://costpulse.io/audit)
-checks 40+, with exact pricing, risk ratings, remediation Terraform, and a
+checks dozens more, with exact pricing, risk ratings, remediation Terraform, and a
 written guarantee: **3x the fee in identified savings, or it's free.**
 
 And if you just want to know *when* spend goes sideways:
