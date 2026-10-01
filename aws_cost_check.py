@@ -29,6 +29,8 @@ Your real savings are usually higher. For the line-by-line audited version:
 
     https://costpulse.io/audit
 
+To get alerted when spend spikes, not just scanned once: https://costpulse.io
+
 (c) CostPulse LLC — MIT License. PRs welcome.
 """
 
@@ -369,6 +371,7 @@ def main():
         print("No obvious waste found by the quick checks. Either your account is")
         print("genuinely tight (respect), or the leaks are in the places a script")
         print("can't see. The human audit checks dozens more: costpulse.io/audit\n")
+        print_alerts_hint()
         return
 
     w = max(len(f.check) for f in findings)
@@ -383,6 +386,13 @@ def main():
     print("These are quick estimates from 8 checks. A full audit covers dozens more,")
     print("with exact pricing and remediation Terraform — guaranteed 3x the fee or free:")
     print("→ https://costpulse.io/audit\n")
+    print_alerts_hint()
+
+
+def print_alerts_hint():
+    print("This scan shows waste that already exists. To hear about the next leak")
+    print("the day it starts, CostPulse sends AWS cost anomaly alerts to Slack/Teams:")
+    print("→ https://costpulse.io/?utm_source=aws-cost-check&utm_medium=cli\n")
 
 
 if __name__ == "__main__":
