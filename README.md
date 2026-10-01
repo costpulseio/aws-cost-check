@@ -2,9 +2,22 @@
 
 **Find your AWS waste in 60 seconds. Read-only. One file. No agents, no signup.**
 
+Real output from a scan of our own production account (account ID redacted):
+
 ```
-ESTIMATED ANNUALIZED WASTE                                    $ X,XXX
+aws-cost-check · account XXXXXXXXXXXX · 17 region(s)
+read-only scan — nothing is modified
+
+CHECK             REGION          RESOURCE                  EST $/YR
+--------------------------------------------------------------------
+Idle NAT gateway  us-west-2       nat-01846626de4cd0798            394
+                  └─ 345 MB out in 14 days — consider VPC endpoints or consolidation
+--------------------------------------------------------------------
+ESTIMATED ANNUALIZED WASTE                                  $      394
 ```
+
+Yes, we found waste in our own account. A NAT gateway costs about $33 a month
+before it moves a single byte, and this one moved 345 MB in two weeks.
 
 `aws-cost-check` is a single Python script that scans your AWS account with
 read-only API calls and prints an estimated annualized waste figure for the
@@ -79,12 +92,12 @@ A few rules we follow — and you should verify:
 
 ## Want the full version?
 
-This script checks 8 patterns. A [CostPulse Cost Audit](https://costpulse.io/audit)
+This script checks 8 patterns. A [CostPulse Cost Audit](https://costpulse.io/audit?utm_source=aws-cost-check&utm_medium=readme)
 checks dozens more, with exact pricing, risk ratings, remediation Terraform, and a
 written guarantee: **3x the fee in identified savings, or it's free.**
 
 And if you just want to know *when* spend goes sideways:
-[CostPulse](https://costpulse.io) sends AWS cost anomaly alerts to Slack and
+[CostPulse](https://costpulse.io/?utm_source=aws-cost-check&utm_medium=readme) sends AWS cost anomaly alerts to Slack and
 Microsoft Teams.
 
 ## License
